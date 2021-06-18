@@ -21,9 +21,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="269dp"
-        android:layout_height="243dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="233dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -55,16 +55,26 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="277dp"
-        android:layout_height="92dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="21일째"
         android:textAlignment="center"
         android:textColor="#1F6B30"
-        android:textSize="70sp"
+        android:textSize="65sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/indicator1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

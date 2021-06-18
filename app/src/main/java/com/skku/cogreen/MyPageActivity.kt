@@ -5,6 +5,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.kakao.sdk.user.UserApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,6 +55,10 @@ class MyPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_page)
 
+        var ViewPager=findViewById<androidx.viewpager2.widget.ViewPager2>(R.id.viewPager2)
+        var adapter=ViewAdapter(this)
+        ViewPager.adapter=adapter
+
 
         val BaseUrl="http://3.36.148.225:3000/"
         val retrofit= Retrofit.Builder()
@@ -57,7 +68,8 @@ class MyPageActivity : AppCompatActivity() {
         val api=retrofit.create(UserinfoAPI::class.java)
         val getapi=api.getUserinfo(GlobalApplication.prefs.token.toString())
 
-        getapi.enqueue(object : Callback<UserinfoResponse>{
+        // api로 정보 받아오기기
+         getapi.enqueue(object : Callback<UserinfoResponse>{
             override fun onResponse(call: Call<UserinfoResponse>, response: Response<UserinfoResponse>) {
                 if(response.isSuccessful()){
                     val result: UserinfoResponse? =response.body()
@@ -76,16 +88,30 @@ class MyPageActivity : AppCompatActivity() {
         })
 
 
-
-        var btn=findViewById<Button>(R.id.button)
-        btn.setOnClickListener {
-            UserApiClient.instance.logout { error ->
-                if (error != null) {
-                    Toast.makeText(this, "로그아웃 실패 $error", Toast.LENGTH_SHORT).show()
-                }else {
-                    Toast.makeText(this, "로그아웃 성공", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
     }
 }
+
+class ViewAdapter(fa:FragmentActivity):FragmentStateAdapter(fa){
+    override fun getItemCount(): Int {
+        return Integer.MAX_VALUE
+    }
+
+    override fun createFragment(position: Int): Fragment {
+        when(position%2){
+            0->return mypage1()
+            1->return mypage2()
+            else->return mypage1()
+        }
+
+    }
+
+}
+
+
+//            UserApiClient.instance.logout { error ->
+//                if (error != null) {
+//                    Toast.makeText(this, "로그아웃 실패 $error", Toast.LENGTH_SHORT).show()
+//                }else {
+//                    Toast.makeText(this, "로그아웃 성공", Toast.LENGTH_SHORT).show()
+//                }
+//            }
