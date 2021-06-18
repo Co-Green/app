@@ -1,4 +1,4 @@
-package edu.skku.co_green
+package com.skku.cogreen
 
 import org.junit.Test
 

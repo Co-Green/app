@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Co-Green</string>
+    <string name="app_name">CoGreen</string>
+    <string name="appname">CoGreen</string>
+    <string name="native_key">f1589e10aabb8a505e0b1089ebf30ab9</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,4 +1,4 @@
-package edu.skku.co_green
+package com.skku.cogreen
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
