@@ -1,5 +1,6 @@
 package com.skku.cogreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -19,6 +20,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import java.io.Serializable
 
 
 data class Userinfo(
@@ -26,17 +28,13 @@ data class Userinfo(
         var continuos: Int,
         var ranking: Int,
         var rankingPercentage: Float,
-        var isSolvedToday: Boolean,
+        var isSolvedToday: Int,
 )
 
-data class Solvedmissions(
-        var title: String,
-        var date: String
-)
 
 data class UserinfoResponse(
         var userInfo: Userinfo,
-        var solvedMissions: List<Userinfo>,
+        var solvedMissions: List<List<String>>,
         var isSuccess: Boolean,
         var code: Int,
         var message: String,
@@ -54,10 +52,6 @@ class MyPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_page)
-
-        var ViewPager=findViewById<androidx.viewpager2.widget.ViewPager2>(R.id.viewPager2)
-        var adapter=ViewAdapter(this)
-        ViewPager.adapter=adapter
 
 
         val BaseUrl="http://3.36.148.225:3000/"
@@ -84,22 +78,47 @@ class MyPageActivity : AppCompatActivity() {
             override fun onFailure(call: Call<UserinfoResponse>, t: Throwable) {
                 Log.d("USER_SESSION", "실패 : ${t}")
             }
-
         })
+
+        var ViewPager=findViewById<androidx.viewpager2.widget.ViewPager2>(R.id.viewPager2)
+        var adapter=ViewAdapter(this,1,1,1F)
+        ViewPager.adapter=adapter
+
+
+        val Btn=findViewById<Button>(R.id.button)
+        val intent= Intent(this, StateActivity::class.java)
+        Btn.setOnClickListener { startActivity(intent) }
 
 
     }
 }
 
-class ViewAdapter(fa:FragmentActivity):FragmentStateAdapter(fa){
+class ViewAdapter(fa:FragmentActivity, continuos: Int, ranking: Int,rankingPercentage: Float,):FragmentStateAdapter(fa){
+    var continuos:Int=continuos
+    var ranking:Int=ranking
+    var rankingPercentage:Float=rankingPercentage
+//    var solvedMissions:List<List<String>> = solvedMissions
+
     override fun getItemCount(): Int {
         return Integer.MAX_VALUE
     }
 
     override fun createFragment(position: Int): Fragment {
+
         when(position%2){
-            0->return mypage1()
-            1->return mypage2()
+            0->return mypage1().apply {
+                arguments=Bundle().apply {
+                    putInt("continuos",continuos)
+                }
+            }
+            1->return mypage2().apply {
+                arguments=Bundle().apply {
+                    putInt("ranking",ranking)
+                    putFloat("rankingPercentage",rankingPercentage)
+
+                }
+
+            }
             else->return mypage1()
         }
 
