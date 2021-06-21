@@ -36,8 +36,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="383dp"
-        android:layout_height="602dp"
+        android:layout_width="384dp"
+        android:layout_height="560dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10">
@@ -45,13 +45,601 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="Q1. 마음을 차분히 가라앉히고 싶어요."
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"></TextView>
+
+            <RadioGroup
+                android:id="@+id/rg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb15"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio5" />
+
+                <RadioButton
+                    android:id="@+id/rb14"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio4" />
+
+                <RadioButton
+                    android:id="@+id/rb13"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio3" />
+
+                <RadioButton
+                    android:id="@+id/rb12"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio2" />
+
+                <RadioButton
+                    android:id="@+id/rb11"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio1" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="보통"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/b1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#00FFFFFF"
+                android:text="선택하지 않을래요."
+                android:textColor="#E9000000">
+
+            </Button>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="Q2. 소속감을 느끼고 싶어요."
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"></TextView>
+
+            <RadioGroup
+                android:id="@+id/rg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb25"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio5" />
+
+                <RadioButton
+                    android:id="@+id/rb24"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio4" />
+
+                <RadioButton
+                    android:id="@+id/rb23"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio3" />
+
+                <RadioButton
+                    android:id="@+id/rb22"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio2" />
+
+                <RadioButton
+                    android:id="@+id/rb21"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio1" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="보통"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#00FFFFFF"
+                android:text="선택하지 않을래요."
+                android:textColor="#E9000000">
+
+            </Button>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="Q3. 기분 전환을 하고 싶어요."
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"></TextView>
+
+            <RadioGroup
+                android:id="@+id/rg3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb35"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio5" />
+
+                <RadioButton
+                    android:id="@+id/rb34"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio4" />
+
+                <RadioButton
+                    android:id="@+id/rb33"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio3" />
+
+                <RadioButton
+                    android:id="@+id/rb32"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio2" />
+
+                <RadioButton
+                    android:id="@+id/rb31"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio1" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="보통"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/b3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#00FFFFFF"
+                android:text="선택하지 않을래요."
+                android:textColor="#E9000000">
+
+            </Button>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="Q4. 건강하지 못한 기분이에요."
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"></TextView>
+
+            <RadioGroup
+                android:id="@+id/rg4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb45"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio5" />
+
+                <RadioButton
+                    android:id="@+id/rb44"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio4" />
+
+                <RadioButton
+                    android:id="@+id/rb43"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio3" />
+
+                <RadioButton
+                    android:id="@+id/rb42"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio2" />
+
+                <RadioButton
+                    android:id="@+id/rb41"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio1" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="보통"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/b4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#00FFFFFF"
+                android:text="선택하지 않을래요."
+                android:textColor="#E9000000">
+
+            </Button>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="Q5. 무기력해요."
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"></TextView>
+
+            <RadioGroup
+                android:id="@+id/rg5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb55"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio5" />
+
+                <RadioButton
+                    android:id="@+id/rb54"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio4" />
+
+                <RadioButton
+                    android:id="@+id/rb53"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio3" />
+
+                <RadioButton
+                    android:id="@+id/rb52"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio2" />
+
+                <RadioButton
+                    android:id="@+id/rb51"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:button="@drawable/radio1" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold">
+                </TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="긍정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="보통"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="매우 부정"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/b5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#00FFFFFF"
+                android:text="선택하지 않을래요."
+                android:textColor="#E9000000">
+
+            </Button>
+
+
+        </LinearLayout>
     </ScrollView>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="314dp"
-        android:layout_height="60dp"
+        android:layout_width="317dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         android:background="#1F6B30"
         android:text="선택 완료"

@@ -86,6 +86,7 @@ class MissionActivity : AppCompatActivity() {
         var a3=findViewById<EditText>(R.id.a3)
 
         var intent= Intent(this,SubmitActivity::class.java)
+        var intent2=Intent(this,MainActivity::class.java)
         var button=findViewById<Button>(R.id.button)
         var button2=findViewById<Button>(R.id.button2)
 
@@ -181,7 +182,7 @@ class MissionActivity : AppCompatActivity() {
                 }
             })
 
-            startActivity(intent)
+            startActivity(intent2)
         }
 
     }

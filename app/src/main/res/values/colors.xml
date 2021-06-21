@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background">#D8E5D9</color>
+    <color name="checked">#FF0a0b</color>
 </resources>
