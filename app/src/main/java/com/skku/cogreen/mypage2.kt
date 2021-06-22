@@ -28,6 +28,8 @@ class mypage2 : Fragment() {
             rankingPercentage=it.getFloat("rankingPercentage")
             solvedmissions=it.getSerializable("solvedMissions") as List<Mission>
         }
+
+        Log.d("FRAG_SESSION","${ranking} ${rankingPercentage}")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

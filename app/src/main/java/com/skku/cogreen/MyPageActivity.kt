@@ -101,8 +101,8 @@ class MyPageActivity : AppCompatActivity() {
 
              inner class ViewAdapter(fa:FragmentActivity, continuos: Int, ranking: Int,rankingPercentage: Float,solvedMissions: List<Mission>):FragmentStateAdapter(fa){
                  var continuos:Int=continuos
-                 var ranking:Int=ranking
-                 var rankingPercentage:Float=rankingPercentage
+                 var ranking1:Int=ranking
+                 var rankingPercentage1:Float=rankingPercentage
                  var solvedMissions:List<Mission> = solvedMissions
 
                  override fun getItemCount(): Int {
@@ -119,10 +119,12 @@ class MyPageActivity : AppCompatActivity() {
                          }
                          1->return mypage2().apply {
                              arguments=Bundle().apply {
-                                 putInt("ranking",ranking)
-                                 putFloat("rankingPercentage",rankingPercentage)
+                                 putInt("ranking",ranking1)
+                                 putFloat("rankingPercentage",rankingPercentage1)
                                  putSerializable("solvedMissions",solvedMissions as Serializable)
                              }
+
+                             Log.d("USER_SESSION","${ranking} ${rankingPercentage}")
                          }
                          else->return mypage1()
                      }
