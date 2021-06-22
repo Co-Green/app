@@ -151,9 +151,11 @@ class StateActivity : AppCompatActivity() {
                     val result: stateResponse? =response.body()
                     Log.d("STATE_SESSION",response.body().toString())
                     if (result != null) {
-                        Log.d("STATE_SESSION","미션 인덱스 들어감 ${result.missionIndex}")
                         intent.putExtra("missionIndex",result.missionIndex)
                         GlobalApplication.prefs.missionIndex=result.missionIndex
+                        GlobalApplication.prefs.submit=false
+
+                        Log.d("PREF","${GlobalApplication.prefs.missionIndex}  ${GlobalApplication.prefs.submit}")
                         startActivity(intent)
                     }
                 }
@@ -163,7 +165,6 @@ class StateActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<stateResponse>, t: Throwable) {
-
                 Log.d("STATE_SESSION","실패 ${t}")
 
             }

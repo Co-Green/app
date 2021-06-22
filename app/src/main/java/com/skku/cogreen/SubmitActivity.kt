@@ -23,7 +23,7 @@ class SubmitActivity : AppCompatActivity() {
         titleview.text=title
 
         btn.setOnClickListener {
-            var mintent= Intent(this, MainActivity::class.java)
+            val mintent= Intent(this, MyPageActivity::class.java)
             startActivity(mintent)
         }
     }

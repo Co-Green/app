@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d("PREF","${GlobalApplication.prefs.token} ${GlobalApplication.prefs.missionIndex} ${GlobalApplication.prefs.submit}")
 
         val button=findViewById<Button>(R.id.loginbutton)
 
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                                     GlobalApplication.prefs.token=result.jwt
                                 }
                                 Log.d("KAKAO_SESSION","shared preference ${GlobalApplication.prefs.token.toString()}")
-                                startActivity(intent)
+                                startActivity(Intent(this@MainActivity,MyPageActivity::class.java))
 
                             }
                             else{

@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -99,8 +100,12 @@ class MissionActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+//         fun getMission(
+//        @Header("x-access-token") jwt: String,
+//        @Path("id") id:Int,
+
         val mapi=retrofit.create(missionAPI::class.java)
-        val missionapi= missionIndex?.let { mapi.getMission(GlobalApplication.prefs.token.toString(), it) }
+        val missionapi= GlobalApplication.prefs.missionIndex?.let { GlobalApplication.prefs.token?.let { it1 -> mapi.getMission(it1, it) } }
 
          //api로 정보 받아오기
 
@@ -140,31 +145,38 @@ class MissionActivity : AppCompatActivity() {
 
 
         button.setOnClickListener {
-            val sapi=retrofit.create(submitAPI::class.java)
-            val submitAPI= missionIndex?.let { it1 ->
-                sapi.patchSubmit(GlobalApplication.prefs.token.toString(),
-                        a1.text.toString(),a2.text.toString(),a3.text.toString(),
-                        it1, "false")
-            }
-            if (submitAPI != null) {
-                submitAPI.enqueue(object :Callback<submitResponse>{
-                    override fun onResponse(call: Call<submitResponse>, response: Response<submitResponse>) {
-                        if(response.isSuccessful()){
-                            val result: submitResponse? =response.body()
-                            Log.d("MISSION_SESSION",response.body().toString())
+            if((a1.text.length>0)&&(a2.text.length>0)&&(a3.text.length>0)){
+                val sapi=retrofit.create(submitAPI::class.java)
+                val submitAPI= missionIndex?.let { it1 ->
+                    sapi.patchSubmit(GlobalApplication.prefs.token.toString(),
+                            a1.text.toString(),a2.text.toString(),a3.text.toString(),
+                            it1, "false")
+                }
+                if (submitAPI != null) {
+                    submitAPI.enqueue(object :Callback<submitResponse>{
+                        override fun onResponse(call: Call<submitResponse>, response: Response<submitResponse>) {
+                            if(response.isSuccessful()){
+                                val result: submitResponse? =response.body()
+                                Log.d("MISSION_SESSION",response.body().toString())
+                            }
+                            else{
+                                Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
+                            }
                         }
-                        else{
-                            Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
-                        }
-                    }
 
-                    override fun onFailure(call: Call<submitResponse>, t: Throwable) {
-                        Log.d("SUBMIT_SESSION","실패 ${t}")
-                    }
-                })
+                        override fun onFailure(call: Call<submitResponse>, t: Throwable) {
+                            Log.d("SUBMIT_SESSION","실패 ${t}")
+                        }
+                    })
+                }
+                GlobalApplication.prefs.submit=true
+                Log.d("PREF","${GlobalApplication.prefs.missionIndex}  ${GlobalApplication.prefs.submit}")
+                startActivity(intent1)
             }
-            GlobalApplication.prefs.submit=true
-            startActivity(intent1)
+            else{
+                Toast.makeText(applicationContext,"질문에 모두 답변해주세요!",Toast.LENGTH_LONG).show()
+            }
+
         }
 
         button2.setOnClickListener {
@@ -194,6 +206,8 @@ class MissionActivity : AppCompatActivity() {
                 })
             }
             GlobalApplication.prefs.submit=false
+
+            Log.d("PREF","${GlobalApplication.prefs.missionIndex}  ${GlobalApplication.prefs.submit}")
             startActivity(intent2)
         }
 

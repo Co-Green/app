@@ -83,10 +83,10 @@ class MyPageActivity : AppCompatActivity() {
                     var result= response.body()!!
                     Log.d("USER_SESSION",response.body().toString())
                     greeting.text="${result.userInfo.name}님 안녕하세요!"
-//                    if(result.userInfo.isSolvedToday==1){
-//                        Btn.text="오늘의 미션 완료"
-//                        Btn.setEnabled(false)
-//                    }
+                    if(result.userInfo.isSolvedToday==1){
+                        Btn.text="오늘의 미션 완료"
+                        Btn.setEnabled(false)
+                    }
 
                     var adapter=ViewAdapter(this@MyPageActivity, result.userInfo.continuous,result.userInfo.ranking,result.userInfo.rankingPercent,result.solvedMissions)
                     ViewPager.adapter=adapter
@@ -136,11 +136,14 @@ class MyPageActivity : AppCompatActivity() {
 
         Btn.setOnClickListener {
             if(GlobalApplication.prefs.submit==false){
+                Log.d("PREF","${GlobalApplication.prefs.missionIndex}  ${GlobalApplication.prefs.submit}")
 
                 val intent= Intent(this, MissionActivity::class.java)
                 startActivity(intent)
             }
             else{
+
+                Log.d("PREF","${GlobalApplication.prefs.token} ${GlobalApplication.prefs.missionIndex} ${GlobalApplication.prefs.submit}")
                 val intent= Intent(this, StateActivity::class.java)
                 startActivity(intent)
             }

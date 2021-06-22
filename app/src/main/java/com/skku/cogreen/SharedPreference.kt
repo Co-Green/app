@@ -25,5 +25,5 @@ class SharedPreference (context: Context){
     var submit:Boolean
         get() = prefs.getBoolean("submit",true)
         set(value){
-            prefs.edit().putBoolean("token",value).apply() }
+            prefs.edit().putBoolean("submit",value).apply() }
 }
