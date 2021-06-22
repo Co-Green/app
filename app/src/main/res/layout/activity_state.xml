@@ -641,7 +641,7 @@
         android:layout_width="317dp"
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
-        android:background="#1F6B30"
+        android:background="@drawable/round_button"
         android:text="선택 완료"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
 //순위 -> int
 //상위 퍼센트 -> float
@@ -16,7 +17,7 @@ import android.widget.TextView
 class mypage2 : Fragment() {
     var ranking:Int=1
     var rankingPercentage:Float= 0F
-    lateinit var solvedmissions:List<List<String>>
+    lateinit var solvedmissions:List<Mission>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,7 @@ class mypage2 : Fragment() {
         arguments?.let {
             ranking=it.getInt("ranking")
             rankingPercentage=it.getFloat("rankingPercentage")
-//            solvedmissions=it.getSerializable("solvedMissions") as List<Solvedmissions>
+            solvedmissions=it.getSerializable("solvedMissions") as List<Mission>
 
         }
 
@@ -34,8 +35,49 @@ class mypage2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mypage2, container, false)
+
+        val view:View=inflater.inflate(R.layout.fragment_mypage2, container, false)
+        val rankview= view.findViewById<TextView>(R.id.ranking)
+        val percentview=view.findViewById<TextView>(R.id.rankingPercentage)
+        val recycler=view.findViewById<RecyclerView>(R.id.recycler)
+
+        rankview.text="${ranking}위"
+        percentview.text="상위 ${rankingPercentage}%"
+//
+//        var adapter=Adapter()
+//        adapter.solvedmissions=solvedmissions
+//        recycler.adapter=adapter
+
+        Log.d("FRAG_SESSION",solvedmissions[0].title)
+
+        return view
+    }
+}
+
+class Adapter: RecyclerView.Adapter<Holder>() {
+    lateinit var solvedmissions:List<Mission>
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+        val view=LayoutInflater.from(parent.context).inflate(R.layout.mypage2_list,parent,false)
+        return Holder(view)
     }
 
+    override fun onBindViewHolder(holder: Holder, position: Int) {
+        val mission=solvedmissions.get(position)
+        holder.setMission(mission)
+    }
+
+    override fun getItemCount(): Int {
+        return solvedmissions.size
+    }
+}
+
+class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    fun setMission(mission:Mission){
+        val title=itemView.findViewById<TextView>(R.id.title)
+        val date=itemView.findViewById<TextView>(R.id.date)
+
+        title.text=mission.title
+        date.text=mission.date
+    }
 }

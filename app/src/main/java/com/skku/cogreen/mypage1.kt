@@ -16,20 +16,18 @@ class mypage1 : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             date=it.getInt("continuos")
-            Log.d("FRAG_SESSION", date.toString())
-
         }
-        val dateview= view?.findViewById<TextView>(R.id.dateview)
-        dateview?.setText("${date}일째")
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val dateview= view?.findViewById<TextView>(R.id.dateview)
-        dateview?.setText("${date}일째")
+        val view:View=inflater.inflate(R.layout.fragment_mypage1, container, false)
+        val dateview= view.findViewById<TextView>(R.id.dateview)
+        dateview.text="${date}일째"
 
-        return inflater.inflate(R.layout.fragment_mypage1, container, false)
+        return view
     }
 
 }

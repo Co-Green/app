@@ -43,7 +43,6 @@ class StateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_state)
 
         val button=findViewById<Button>(R.id.button)
-        val intent= Intent(this, MissionActivity::class.java)
         val rg1=findViewById<RadioGroup>(R.id.rg1)
         val rg2=findViewById<RadioGroup>(R.id.rg2)
         val rg3=findViewById<RadioGroup>(R.id.rg3)
@@ -130,15 +129,14 @@ class StateActivity : AppCompatActivity() {
         }
 
         button.setOnClickListener {
-
-
-
             Log.d("STATE_SESSION", "${answer1.toString()},${answer2.toString()},${answer3.toString()},${answer4.toString()},${answer5.toString()}")
             postState(answer1,answer2,answer3,answer4,answer5)
         }
     }
 
     fun postState(answer1: Int,answer2: Int,answer3: Int,answer4: Int,answer5: Int) {
+
+        val intent= Intent(this@StateActivity, MissionActivity::class.java)
 
         val BaseUrl="http://3.36.148.225:3000/"
         val retrofit= Retrofit.Builder()
@@ -154,8 +152,9 @@ class StateActivity : AppCompatActivity() {
                     Log.d("STATE_SESSION",response.body().toString())
                     if (result != null) {
                         intent.putExtra("missionIndex",result.missionIndex)
+                        Log.d("STATE_SESSION","미션 인덱스 들어감 ${result.missionIndex}")
+                        startActivity(intent)
                     }
-                    startActivity(intent)
                 }
                 else{
                     Log.d("STATE_SESSION","실패 ${response.body().toString()}")

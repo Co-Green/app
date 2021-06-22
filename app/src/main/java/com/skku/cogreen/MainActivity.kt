@@ -3,6 +3,8 @@ package com.skku.cogreen
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.model.OAuthToken
@@ -29,12 +31,13 @@ interface loginAPI{
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_CoGreen)
+        setTheme(R.style.SplashTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        System.setProperty("https.protocols","TLSv1.2")
 
         val intent= Intent(this, MyPageActivity::class.java)
+        val button=findViewById<Button>(R.id.loginbutton)
 
         val BaseUrl="http://3.36.148.225:3000/"
         val retrofit=Retrofit.Builder()
@@ -79,11 +82,7 @@ class MainActivity : AppCompatActivity() {
                 }
         }
 
-
-        if (GlobalApplication.prefs.token!=null){
-            startActivity(intent)
-        }
-        else{
+        button.setOnClickListener {
             LoginClient.instance.run {
                 //카카오톡 있으면 그걸로 로그인 ㄱ
                 if (isKakaoTalkLoginAvailable(this@MainActivity)) {
@@ -94,6 +93,14 @@ class MainActivity : AppCompatActivity() {
                     loginWithKakaoAccount(this@MainActivity, callback = callback)
                 }
             }
+        }
+
+
+        if (GlobalApplication.prefs.token!=null){
+            startActivity(intent)
+        }
+        else{
+            button.setVisibility(View.VISIBLE)
         }
 
     }

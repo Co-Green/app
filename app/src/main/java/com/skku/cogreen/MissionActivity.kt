@@ -91,7 +91,7 @@ class MissionActivity : AppCompatActivity() {
         var button2=findViewById<Button>(R.id.button2)
 
         var missionIndex=intent.getIntExtra("missionIndex",0)
-        Log.d("MISSION_SESSION",missionIndex.toString())
+        Log.d("MISSION_SESSION","미션 인덱스 : ${missionIndex.toString()}")
 
 
         val BaseUrl="http://3.36.148.225:3000/"
