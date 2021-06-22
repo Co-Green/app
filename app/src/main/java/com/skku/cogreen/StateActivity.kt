@@ -151,8 +151,8 @@ class StateActivity : AppCompatActivity() {
                     val result: stateResponse? =response.body()
                     Log.d("STATE_SESSION",response.body().toString())
                     if (result != null) {
-                        intent.putExtra("missionIndex",result.missionIndex)
                         Log.d("STATE_SESSION","미션 인덱스 들어감 ${result.missionIndex}")
+                        intent.putExtra("missionIndex",result.missionIndex)
                         startActivity(intent)
                     }
                 }

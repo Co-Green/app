@@ -2,6 +2,7 @@ package com.skku.cogreen
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -34,9 +35,8 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.SplashTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        System.setProperty("https.protocols","TLSv1.2")
 
-        val intent= Intent(this, MyPageActivity::class.java)
+
         val button=findViewById<Button>(R.id.loginbutton)
 
         val BaseUrl="http://3.36.148.225:3000/"
@@ -97,6 +97,12 @@ class MainActivity : AppCompatActivity() {
 
 
         if (GlobalApplication.prefs.token!=null){
+            var handler = Handler()
+            handler.postDelayed({
+                val intent= Intent(this, MyPageActivity::class.java)
+                startActivity(intent)
+                finish()}, 2000)
+
             startActivity(intent)
         }
         else{

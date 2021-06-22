@@ -85,7 +85,7 @@ class MissionActivity : AppCompatActivity() {
         var a2=findViewById<EditText>(R.id.a2)
         var a3=findViewById<EditText>(R.id.a3)
 
-        var intent= Intent(this,SubmitActivity::class.java)
+        var intent1= Intent(this,SubmitActivity::class.java)
         var intent2=Intent(this,MainActivity::class.java)
         var button=findViewById<Button>(R.id.button)
         var button2=findViewById<Button>(R.id.button2)
@@ -103,7 +103,7 @@ class MissionActivity : AppCompatActivity() {
         val mapi=retrofit.create(missionAPI::class.java)
         val missionapi=mapi.getMission(GlobalApplication.prefs.token.toString(), missionIndex)
 
-        // api로 정보 받아오기
+         //api로 정보 받아오기
         missionapi.enqueue(object:Callback<missionResponse>{
             override fun onResponse(call: Call<missionResponse>, response: Response<missionResponse>) {
                 if(response.isSuccessful()){
@@ -111,8 +111,8 @@ class MissionActivity : AppCompatActivity() {
                     Log.d("MISSION_SESSION",response.body().toString())
 
                     if (body != null) {
-                        intent.putExtra("date",body.result.day)
-                        intent.putExtra("title",body.result.title)
+                        intent1.putExtra("date",body.result.day)
+                        intent1.putExtra("title",body.result.title)
 
                         date.text="Day ${body.result.day}"
                         missiontitle.text=body.result.title
@@ -122,10 +122,9 @@ class MissionActivity : AppCompatActivity() {
                         q2.text=body.result.question2
                         q3.text=body.result.question3
 
-//                        a1.text=body.result.answer1
-//                        a2.text=body.result.answer2
-//                        a3.text=body.result.answer3
-
+                        a1.setText(body.result.answer1)
+                        a2.setText(body.result.answer2)
+                        a3.setText(body.result.answer3)
                     }
                 }
                 else{
@@ -158,7 +157,7 @@ class MissionActivity : AppCompatActivity() {
                     Log.d("SUBMIT_SESSION","실패 ${t}")
                 }
             })
-            startActivity(intent)
+            startActivity(intent1)
         }
 
         button2.setOnClickListener {
@@ -181,7 +180,6 @@ class MissionActivity : AppCompatActivity() {
                     Log.d("SUBMIT_SESSION","실패 ${t}")
                 }
             })
-
             startActivity(intent2)
         }
 
