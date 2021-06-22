@@ -86,11 +86,10 @@ class MissionActivity : AppCompatActivity() {
         var a3=findViewById<EditText>(R.id.a3)
 
         var intent1= Intent(this,SubmitActivity::class.java)
-        var intent2=Intent(this,MainActivity::class.java)
         var button=findViewById<Button>(R.id.button)
         var button2=findViewById<Button>(R.id.button2)
 
-        var missionIndex=intent.getIntExtra("missionIndex",0)
+        var missionIndex=GlobalApplication.prefs.missionIndex
         Log.d("MISSION_SESSION","미션 인덱스 : ${missionIndex.toString()}")
 
 
@@ -101,85 +100,100 @@ class MissionActivity : AppCompatActivity() {
             .build()
 
         val mapi=retrofit.create(missionAPI::class.java)
-        val missionapi=mapi.getMission(GlobalApplication.prefs.token.toString(), missionIndex)
+        val missionapi= missionIndex?.let { mapi.getMission(GlobalApplication.prefs.token.toString(), it) }
 
          //api로 정보 받아오기
-        missionapi.enqueue(object:Callback<missionResponse>{
-            override fun onResponse(call: Call<missionResponse>, response: Response<missionResponse>) {
-                if(response.isSuccessful()){
-                    val body: missionResponse? =response.body()
-                    Log.d("MISSION_SESSION",response.body().toString())
 
-                    if (body != null) {
-                        intent1.putExtra("date",body.result.day)
-                        intent1.putExtra("title",body.result.title)
+        if (missionapi != null) {
+            missionapi.enqueue(object:Callback<missionResponse>{
+                override fun onResponse(call: Call<missionResponse>, response: Response<missionResponse>) {
+                    if(response.isSuccessful()){
+                        val body: missionResponse? =response.body()
+                        Log.d("MISSION_SESSION",response.body().toString())
 
-                        date.text="Day ${body.result.day}"
-                        missiontitle.text=body.result.title
-                        description.text=body.result.description
+                        if (body != null) {
+                            intent1.putExtra("date",body.result.day)
+                            intent1.putExtra("title",body.result.title)
 
-                        q1.text=body.result.question1
-                        q2.text=body.result.question2
-                        q3.text=body.result.question3
+                            date.text="Day ${body.result.day}"
+                            missiontitle.text=body.result.title
+                            description.text=body.result.description
 
-                        a1.setText(body.result.answer1)
-                        a2.setText(body.result.answer2)
-                        a3.setText(body.result.answer3)
+                            q1.text=body.result.question1
+                            q2.text=body.result.question2
+                            q3.text=body.result.question3
+
+                            a1.setText(body.result.answer1)
+                            a2.setText(body.result.answer2)
+                            a3.setText(body.result.answer3)
+                        }
+                    } else{
+                        Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
                     }
                 }
-                else{
-                    Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
+
+                override fun onFailure(call: Call<missionResponse>, t: Throwable) {
+                    Log.d("MISSION_SESSION", "실패 : ${t}")
                 }
-            }
-            override fun onFailure(call: Call<missionResponse>, t: Throwable) {
-                Log.d("MISSION_SESSION", "실패 : ${t}")
-            }
-        })
+            })
+        }
 
 
         button.setOnClickListener {
             val sapi=retrofit.create(submitAPI::class.java)
-            val submitAPI=sapi.patchSubmit(GlobalApplication.prefs.token.toString(),
-                    a1.text.toString(),a2.text.toString(),a3.text.toString(),
-                    missionIndex, "false")
-            submitAPI.enqueue(object :Callback<submitResponse>{
-                override fun onResponse(call: Call<submitResponse>, response: Response<submitResponse>) {
-                    if(response.isSuccessful()){
-                        val result: submitResponse? =response.body()
-                        Log.d("MISSION_SESSION",response.body().toString())
+            val submitAPI= missionIndex?.let { it1 ->
+                sapi.patchSubmit(GlobalApplication.prefs.token.toString(),
+                        a1.text.toString(),a2.text.toString(),a3.text.toString(),
+                        it1, "false")
+            }
+            if (submitAPI != null) {
+                submitAPI.enqueue(object :Callback<submitResponse>{
+                    override fun onResponse(call: Call<submitResponse>, response: Response<submitResponse>) {
+                        if(response.isSuccessful()){
+                            val result: submitResponse? =response.body()
+                            Log.d("MISSION_SESSION",response.body().toString())
+                        }
+                        else{
+                            Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
+                        }
                     }
-                    else{
-                        Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
-                    }
-                }
 
-                override fun onFailure(call: Call<submitResponse>, t: Throwable) {
-                    Log.d("SUBMIT_SESSION","실패 ${t}")
-                }
-            })
+                    override fun onFailure(call: Call<submitResponse>, t: Throwable) {
+                        Log.d("SUBMIT_SESSION","실패 ${t}")
+                    }
+                })
+            }
+            GlobalApplication.prefs.submit=true
             startActivity(intent1)
         }
 
         button2.setOnClickListener {
-            val sapi=retrofit.create(submitAPI::class.java)
-            val submitAPI=sapi.patchSubmit(GlobalApplication.prefs.token.toString(),
-                    a1.text.toString(),a2.text.toString(),a3.text.toString(),
-                    missionIndex, "true")
-            submitAPI.enqueue(object :Callback<submitResponse>{
-                override fun onResponse(call: Call<submitResponse>, response: Response<submitResponse>) {
-                    if(response.isSuccessful()){
-                        val result: submitResponse? =response.body()
-                        Log.d("MISSION_SESSION",response.body().toString())
-                    }
-                    else{
-                        Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
-                    }
-                }
 
-                override fun onFailure(call: Call<submitResponse>, t: Throwable) {
-                    Log.d("SUBMIT_SESSION","실패 ${t}")
-                }
-            })
+            var intent2=Intent(this,MainActivity::class.java)
+            val sapi=retrofit.create(submitAPI::class.java)
+            val submitAPI= missionIndex?.let { it1 ->
+                sapi.patchSubmit(GlobalApplication.prefs.token.toString(),
+                        a1.text.toString(),a2.text.toString(),a3.text.toString(),
+                        it1, "true")
+            }
+            if (submitAPI != null) {
+                submitAPI.enqueue(object :Callback<submitResponse>{
+                    override fun onResponse(call: Call<submitResponse>, response: Response<submitResponse>) {
+                        if(response.isSuccessful()){
+                            val result: submitResponse? =response.body()
+                            Log.d("MISSION_SESSION",response.body().toString())
+                        }
+                        else{
+                            Log.d("MISSION_SESSION", "실패 : ${response.raw()}")
+                        }
+                    }
+
+                    override fun onFailure(call: Call<submitResponse>, t: Throwable) {
+                        Log.d("SUBMIT_SESSION","실패 ${t}")
+                    }
+                })
+            }
+            GlobalApplication.prefs.submit=false
             startActivity(intent2)
         }
 

@@ -10,6 +10,20 @@ class SharedPreference (context: Context){
     var token:String?
         get() = prefs.getString("token",null)
         set(value){
-            prefs.edit().putString("token",value).apply()
+            prefs.edit().putString("token",value).apply() }
+
+
+    var missionIndex:Int?
+        get() = prefs.getInt("missionIndex",0)
+        set(value){
+            if (value != null) {
+                prefs.edit().putInt("missionIndex",value).apply()
+            }
         }
+
+
+    var submit:Boolean
+        get() = prefs.getBoolean("submit",true)
+        set(value){
+            prefs.edit().putBoolean("token",value).apply() }
 }

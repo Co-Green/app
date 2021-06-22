@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 //순위 -> int
@@ -26,29 +27,29 @@ class mypage2 : Fragment() {
             ranking=it.getInt("ranking")
             rankingPercentage=it.getFloat("rankingPercentage")
             solvedmissions=it.getSerializable("solvedMissions") as List<Mission>
-
         }
-
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
 
         val view:View=inflater.inflate(R.layout.fragment_mypage2, container, false)
-        val rankview= view.findViewById<TextView>(R.id.ranking)
-        val percentview=view.findViewById<TextView>(R.id.rankingPercentage)
+        val rankview= view.findViewById<TextView>(R.id.rankingview)
+        val percentview=view.findViewById<TextView>(R.id.rankingPercentageview)
         val recycler=view.findViewById<RecyclerView>(R.id.recycler)
 
-        rankview.text="${ranking}위"
-        percentview.text="상위 ${rankingPercentage}%"
-//
-//        var adapter=Adapter()
-//        adapter.solvedmissions=solvedmissions
-//        recycler.adapter=adapter
 
-        Log.d("FRAG_SESSION",solvedmissions[0].title)
+
+        rankview.setText("${ranking}위")
+        percentview.setText("상위 ${rankingPercentage}%")
+
+        val adapter=Adapter()
+        adapter.solvedmissions=solvedmissions
+        val mLayoutManager=LinearLayoutManager(context)
+        recycler.layoutManager=mLayoutManager
+        recycler.adapter=adapter
+
+        Log.d("FRAG_SESSION","${ranking} ${rankingPercentage}")
 
         return view
     }

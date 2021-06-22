@@ -88,13 +88,7 @@ class MyPageActivity : AppCompatActivity() {
 //                        Btn.setEnabled(false)
 //                    }
 
-                    Log.d("USER_SESSION", result.solvedMissions[0].title)
-                    var temp:List<Mission>
-                    var a:Mission=Mission("밥먹기","2222")
-                    var b:Mission=Mission("밥먹기","2222")
-                    temp= mutableListOf(a,b)
-
-                    var adapter=ViewAdapter(this@MyPageActivity, 3,5,0.6F,temp)
+                    var adapter=ViewAdapter(this@MyPageActivity, result.userInfo.continuous,result.userInfo.ranking,result.userInfo.rankingPercent,result.solvedMissions)
                     ViewPager.adapter=adapter
                 }
                 else{
@@ -137,8 +131,18 @@ class MyPageActivity : AppCompatActivity() {
 
         })
 
-        val intent= Intent(this, StateActivity::class.java)
-        Btn.setOnClickListener { startActivity(intent) }
+
+        Btn.setOnClickListener {
+            if(GlobalApplication.prefs.submit==false){
+
+                val intent= Intent(this, MissionActivity::class.java)
+                startActivity(intent)
+            }
+            else{
+                val intent= Intent(this, StateActivity::class.java)
+                startActivity(intent)
+            }
+        }
 
 
     }

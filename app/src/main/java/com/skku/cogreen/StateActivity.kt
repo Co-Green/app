@@ -153,6 +153,7 @@ class StateActivity : AppCompatActivity() {
                     if (result != null) {
                         Log.d("STATE_SESSION","미션 인덱스 들어감 ${result.missionIndex}")
                         intent.putExtra("missionIndex",result.missionIndex)
+                        GlobalApplication.prefs.missionIndex=result.missionIndex
                         startActivity(intent)
                     }
                 }
