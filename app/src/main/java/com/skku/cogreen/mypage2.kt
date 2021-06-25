@@ -43,7 +43,7 @@ class mypage2 : Fragment() {
         percentview.setText("상위 ${rankingPercentage}%")
 
         val adapter=Adapter()
-        adapter.solvedmissions=solvedmissions
+        adapter.solvedmissions=solvedmissions.asReversed()
         val mLayoutManager=LinearLayoutManager(context)
         recycler.layoutManager=mLayoutManager
         recycler.adapter=adapter
