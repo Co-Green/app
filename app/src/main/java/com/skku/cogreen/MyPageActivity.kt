@@ -84,8 +84,9 @@ class MyPageActivity : AppCompatActivity() {
                     Log.d("USER_SESSION",response.body().toString())
                     greeting.text="${result.userInfo.name}님 안녕하세요!"
                     if(result.userInfo.isSolvedToday==1){
+                        Toast.makeText(applicationContext,"오늘의 미션을 이미 수행하셨습니다! 내일의 미션을 기다려주세요~~",Toast.LENGTH_LONG).show()
                         Btn.text="오늘의 미션 완료"
-                        Btn.setEnabled(false)
+//                        Btn.setEnabled(false)
                     }
 
                     var adapter=ViewAdapter(this@MyPageActivity, result.userInfo.continuous,result.userInfo.ranking,result.userInfo.rankingPercent,result.solvedMissions)

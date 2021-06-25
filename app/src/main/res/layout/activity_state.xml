@@ -68,6 +68,7 @@
                     android:id="@+id/rb15"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio5" />
@@ -76,6 +77,7 @@
                     android:id="@+id/rb14"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio4" />
@@ -84,6 +86,7 @@
                     android:id="@+id/rb13"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio3" />
@@ -92,6 +95,7 @@
                     android:id="@+id/rb12"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio2" />
@@ -100,6 +104,7 @@
                     android:id="@+id/rb11"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio1" />
@@ -185,6 +190,7 @@
                     android:id="@+id/rb25"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio5" />
@@ -193,6 +199,7 @@
                     android:id="@+id/rb24"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio4" />
@@ -201,6 +208,7 @@
                     android:id="@+id/rb23"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio3" />
@@ -209,6 +217,7 @@
                     android:id="@+id/rb22"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio2" />
@@ -217,6 +226,7 @@
                     android:id="@+id/rb21"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio1" />
@@ -302,6 +312,7 @@
                     android:id="@+id/rb35"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio5" />
@@ -310,6 +321,7 @@
                     android:id="@+id/rb34"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio4" />
@@ -318,6 +330,7 @@
                     android:id="@+id/rb33"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio3" />
@@ -326,6 +339,7 @@
                     android:id="@+id/rb32"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio2" />
@@ -334,6 +348,7 @@
                     android:id="@+id/rb31"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio1" />
@@ -419,6 +434,7 @@
                     android:id="@+id/rb45"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio5" />
@@ -427,6 +443,7 @@
                     android:id="@+id/rb44"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio4" />
@@ -435,6 +452,7 @@
                     android:id="@+id/rb43"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio3" />
@@ -443,6 +461,7 @@
                     android:id="@+id/rb42"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio2" />
@@ -451,6 +470,7 @@
                     android:id="@+id/rb41"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio1" />
@@ -536,6 +556,7 @@
                     android:id="@+id/rb55"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio5" />
@@ -544,6 +565,7 @@
                     android:id="@+id/rb54"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio4" />
@@ -552,6 +574,7 @@
                     android:id="@+id/rb53"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio3" />
@@ -560,14 +583,16 @@
                     android:id="@+id/rb52"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:button="@drawable/radio2"
-                    android:layout_marginRight="15dp" />
+                    android:button="@drawable/radio2" />
 
                 <RadioButton
                     android:id="@+id/rb51"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:button="@drawable/radio1" />
@@ -631,13 +656,6 @@
                 android:textColor="#E9000000">
 
             </Button>
-
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Switch" />
-
 
         </LinearLayout>
     </ScrollView>
