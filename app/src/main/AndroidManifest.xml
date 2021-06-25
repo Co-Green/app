@@ -7,13 +7,13 @@
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_main"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_main_round"
         android:supportsRtl="true"
         android:theme="@style/SplashTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SubmitActivity"></activity>
+        <activity android:name=".SubmitActivity" />
         <activity android:name=".MissionActivity" />
         <activity android:name=".StateActivity" />
         <activity android:name=".MyPageActivity" />

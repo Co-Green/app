@@ -10,9 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-//순위 -> int
-//상위 퍼센트 -> float
-// 수행 완료 미션 목록 (이름이랑 날짜) ->solvedMissions array로 받아와서
 
 
 class mypage2 : Fragment() {
